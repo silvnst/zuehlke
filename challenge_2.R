@@ -1,3 +1,5 @@
+# Challenge 2
+
 # vigenere cipher
 # letters A-Z -> numbers 0-25
 
@@ -10,4 +12,18 @@
 # K=K_1… K_n is the key
 # obtained by repeating the keyword m times in 
 # which m is the keyword length."
+
+crypt <- read_file("challenge_2.txt")
+l <- str_count(chal2)
+
+key_word <- "MONKEYISLAND"
+key <- str_dup(key, round(l/str_count(key_word))+1) %>%
+  str_extract(pattern = paste0("^.{", l, "}"))
+
+# ewrising äs karakderveggdor
+crypt <- str_split(crypt, pattern = "")[[1]]
+key <- str_split(key, pattern = "")[[1]]
+
+
+
 
