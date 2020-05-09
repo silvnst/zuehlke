@@ -14,7 +14,7 @@
 # which m is the keyword length."
 
 crypt <- read_file("challenge_2.txt")
-l <- str_count(chal2)
+l <- str_count(crypt)
 
 key_word <- "MONKEYISLAND"
 key <- str_dup(key, round(l/str_count(key_word))+1) %>%
@@ -23,6 +23,12 @@ key <- str_dup(key, round(l/str_count(key_word))+1) %>%
 # ewrising äs karakderveggdor
 crypt <- str_split(crypt, pattern = "")[[1]]
 key <- str_split(key, pattern = "")[[1]]
+
+# new vectors to numbers
+for (n in 1:l) {
+  crypt[n] <- (which(LETTERS == crypt[n])-1)
+  key[n] <- (which(LETTERS == crypt[n])-1)
+}
 
 
 
